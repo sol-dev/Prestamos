@@ -4,6 +4,8 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "cliente")
 public class Cliente {
@@ -28,7 +30,9 @@ public class Cliente {
     @Column(name = "baja")
     private boolean baja;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "cliente")
+
+    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "cliente")
+    @JsonIgnore
     private Set<Prestamo> prestamos;
 
     public Cliente() {

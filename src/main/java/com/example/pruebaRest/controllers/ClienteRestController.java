@@ -51,7 +51,7 @@ public class ClienteRestController{
 
   
   @PutMapping("/update")
-  Cliente update(@RequestParam int id,@RequestBody Cliente newCliente) {
+  public Cliente update(@RequestParam int id,@RequestBody Cliente newCliente) {
     /*recibo el id del usuario sobre el que voy a realizar el update
       mando por json el objeto con los atributos solo que quiero modificar   */
     

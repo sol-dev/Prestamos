@@ -16,9 +16,8 @@ public interface IPrestamoRepository extends JpaRepository<Prestamo , Serializab
     @Query("SELECT p FROM Prestamo p WHERE p.idPrestamo = :idprestamo")
 	public Prestamo findPrestamoById(@Param("idprestamo") int id);
     
-    @Query("SELECT p FROM Prestamo p WHERE p.fk_cliente = :idcliente")
-	public List<Prestamo> findByClienteId(@Param("idcliente") long idCliente);
-   /* @Query("SELECT s FROM Subcategory s WHERE s.category.idCategory = :idCategory")
-	public abstract List<Subcategory> findSubcategoryByCategory(@Param("idCategory") int idCategory);
-    */
+    @Query("SELECT p FROM Prestamo p WHERE p.cliente.idCliente = :idcli")
+    public List<Prestamo> findByClienteId(@Param("idcli") int id);
+
+
 }
