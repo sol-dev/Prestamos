@@ -1,6 +1,8 @@
 package com.example.pruebaRest.entities;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -42,6 +44,9 @@ public class Prestamo {
     @JoinColumn(name = "fk_cliente")
     @JsonIgnoreProperties("prestamos")
     private Cliente cliente;
+
+    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY,mappedBy = "prestamo")
+    private Set<Cuota> cuotas = new HashSet<>();
 
     public Prestamo(){}
 
